@@ -20,7 +20,9 @@
  * 
  * 
  * 	kjj 3-24-19   this is the entry point for controlling the effects of my prequel enterprise.
- * 					we will be using wiringpi, mcp23017 libraries
+ * 					we will be using wiringpi, mcp23017 libraries.  see readme.md for build commands
+ * 
+ * 
  * 
  * may add some gui to this, but for now just want to get the code startd and checked in.
  * 
@@ -37,6 +39,10 @@
 
 int main(int argc, char **argv)
 {
+	/* entry point*/
+	printf("the start of the program");
+	
+	
 	
 	return 0;
 }
