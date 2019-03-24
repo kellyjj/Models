@@ -6,6 +6,7 @@
  * 
  * 		will have to spawn some threads.  this has to be real time
  * 
+ * kjj 3-24-19  removing the references to the gui.  
  */
 
 
@@ -13,8 +14,6 @@
 #include <string.h>
 
 
-GtkEntry 	*EnteredDelay;
-GtkToggleButton *TurnOffLed;
 
 int ControllerPinBase = 100;
 int ControllerMemAddress = 0x20;  /* this is the base address for the controller to exist */
@@ -30,58 +29,32 @@ int GPA4 = 103;
 int OFF = 0;
 int ON = 1;
 
-int blink_delay = 100;  /* how long we going ot wait */
 
-void *BlinkTheLEDS()
+void BlinkTheLEDS()
 {
 	int currentDelay =100;
-	int cnt = 0;
 	
 	
 	do
 	{
-		const char *chardelay = gtk_entry_get_text(EnteredDelay);
-		//const char *chardelay = "200";
-		
-		sscanf(chardelay,"%d",&currentDelay);
-		
-		if (gtk_toggle_button_get_active (TurnOffLed))
-		{
-	
-			if ((cnt % 2)==0)
-			{
+
 				digitalWrite(GPA0,ON);
-				delay(currentDelay);
-				
-			}
-			else 
-			{
 				digitalWrite(GPA0,OFF);
-				delay(currentDelay);
-			}
-		
-			cnt++;
-		}
-		else 
-		{
-			digitalWrite(GPA0,OFF);
-		}
+	
 			
 	} while (currentDelay >0);
 	
 	digitalWrite(GPA0,OFF);
 
 	
-	return NULL;
+	
 }
 
-void i2c_init(GtkEntry *delayBox,GtkToggleButton *thebutton)
+void i2c_init()
 {
 	/*  this will be used to init the i2c controller.
 	 */
 	 
-	 EnteredDelay = delayBox;
-	 TurnOffLed = thebutton;
 	 
 	 if (wiringPiSetup()>-1)
 	 {
@@ -93,8 +66,6 @@ void i2c_init(GtkEntry *delayBox,GtkToggleButton *thebutton)
 		/* Make sure theyre all turned off */
 		digitalWrite(GPA0,OFF);
 			
-		/* Create worker thread */
-		pthread_create(&BlinkThreads,NULL,BlinkTheLEDS,"processing...");
-		
+				
 	 }
 }

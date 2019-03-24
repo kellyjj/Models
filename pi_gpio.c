@@ -16,9 +16,6 @@
 #include <gtk/gtk.h> 
 #include <pthread.h>
 
-//GtkEntry 	*EnteredDelay;
-
-
 
 
 void initGPIOPins_()

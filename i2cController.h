@@ -14,7 +14,6 @@
 
 
 
-pthread_t BlinkThreads;   /* this is our thread for the blink.    */
 
 void i2c_init();
-
+void BlinkTheLEDS();
