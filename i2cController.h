@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <wiringPi.h>
 #include <mcp23017.h>
-#include <gtk/gtk.h> 
+/* #include <gtk/gtk.h>  kjj 4-19-20  not using this now */
 #include <pthread.h>
 
 

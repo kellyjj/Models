@@ -4,12 +4,20 @@ use at your own risk.  this is the start for my start nx-01 model project.   use
 
 this code is so I can have a example of how to control a mpc2017 from my raspberry pi 3.
 this makes use of the wiring PI library.  
-this makes use of the gtk library.
+
+update 4-19-20:  this code won't for not make use of the gtk (gui)
+this makes use of the gtk library.   
+end update 
+
 this makes use of the i2ccontroller library.
 
-this is the build command gcc -Wall -o "%e" "%f" "i2cController.c"  "pi_gpio.c"  $(pkg-config --cflags --libs gtk+-3.0) -rdynamic -lwiringPi -lpthread
+this is the build command (with a gui package) gcc -Wall -o "%e" "%f" "i2cController.c"  "pi_gpio.c"  $(pkg-config --cflags --libs gtk+-3.0) -rdynamic -lwiringPi -lpthread
+this is the build command (without  a gui package) gcc -Wall -o "%e" "%f" "i2cController.c"  "pi_gpio.c" -rdynamic -lwiringPi -lpthread
 
-this is the compile command  gcc -Wall -c "%f" $(pkg-config --cflags --libs gtk+-3.0) -rdynamic  -lwiringPi -lpthread
+
+
+this is the compile command (with a gui package) gcc -Wall -c "%f" $(pkg-config --cflags --libs gtk+-3.0) -rdynamic  -lwiringPi -lpthread
+this is the compile command (without  a gui package)   gcc -Wall -c "%f"  -rdynamic  -lwiringPi -lpthread
 
 this was written in geany IDE
 
