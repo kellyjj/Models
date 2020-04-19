@@ -11,7 +11,7 @@
  */
 
 
-/*#include "i2cController.h"*/
+#include "i2cController.h"
 #include <string.h>
 
 
@@ -59,10 +59,10 @@ void i2c_init()
 	 
 	 if (wiringPiSetup()>-1)
 	 {
-		//mcp23017Setup(ControllerPinBase,ControllerMemAddress);  /* this sets up the serial controller our config */
+		mcp23017Setup(ControllerPinBase,ControllerMemAddress);  /* this sets up the serial controller our config */
 		
 		/* turning our pins to output */
-		//pinMode(GPA2,OUTPUT);
+		pinMode(GPA2,OUTPUT);
 
 		/* Make sure theyre all turned off */
 		digitalWrite(GPA0,OFF);
